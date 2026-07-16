@@ -5,9 +5,9 @@ const calc = {
     divide: (num1, num2) => Math.round(num1 / num2 * 10) / 10
 };
 
-let num1 = "";
-let op = "";
-let num2 = "";
+let numOne = "";
+let operator = "";
+let numTwo = "";
 
 
 const calcDisplay = document.querySelector(".calc-display");
@@ -17,14 +17,14 @@ const operationButton = document.querySelectorAll(".operator-btn");
 const clearButton = document.querySelector(".clear-btn");
 
 clearButton.addEventListener("click", () => {
-    num1 = "";
-    op = "";
-    num2 = "";
+    numOne = "";
+    operator = "";
+    numTwo = "";
     calcDisplay.textContent = "";
 });
 
 backspace.addEventListener("click", () => {
-    calcDisplay.textContent = calcDisplay.textContent.slice(0,-1);
+        calcDisplay.textContent = calcDisplay.textContent.slice(0,-1);
 });
 
 for(let button of numberButton){
@@ -34,12 +34,10 @@ for(let button of numberButton){
 }
 
 for(let button of operationButton){
-    button.addEventListener("click", () => {
-
-    })
+    button.addEventListener("click", () => {})
 };
 
-function operate(num1, op, num2){
+function operate(numOne, operator, numTwo){
     if(operator === "+"){
         result = calc.add(numOne, numTwo);
     }
