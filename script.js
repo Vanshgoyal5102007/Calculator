@@ -23,7 +23,9 @@ clearButton.addEventListener("click", () => {
     calcDisplay.textContent = "";
 });
 
-backspace.addEventListener("click", () => {});
+backspace.addEventListener("click", () => {
+    calcDisplay.textContent = calcDisplay.textContent.slice(0,-1);
+});
 
 for(let button of numberButton){
     button.addEventListener("click", () => {
