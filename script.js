@@ -8,6 +8,7 @@ const calc = {
 let numOne = "";
 let operator = "";
 let numTwo = "";
+let resultLogged = false;
 
 
 const calcDisplay = document.querySelector(".calc-display");
@@ -31,6 +32,10 @@ backspace.addEventListener("click", () => {
 for(let button of numberButton){
     button.addEventListener("click", () => {
         calcDisplay.textContent += button.textContent;
+        if(resultLogged){
+            resultLogged = false;
+            calcDisplay.textContent = button.textContent;
+        }
     });
 }
 
@@ -43,16 +48,18 @@ for(let button of operationButton){
             numOne = +calcDisplay.textContent;
             operator = button.textContent;
             calcDisplay.textContent = "";
-            // console.log(numOne, operator);
         }
         else if(!numTwo){
             numTwo = +calcDisplay.textContent;
-            console.log(operator);
             let result = operate(numOne, operator, numTwo);
             calcDisplay.textContent = `${result}`;
+            console.log(numOne, operator, numTwo);
             numOne = result;
-            console.log(numTwo);
+            resultLogged = true;
+            numTwo = "";
+            operator = button.textContent;
         }
+        else console.log("hi");
     })
 };
 
