@@ -21,6 +21,7 @@ clearButton.addEventListener("click", () => {
     operator = "";
     numTwo = "";
     calcDisplay.textContent = "";
+    console.clear();
 });
 
 backspace.addEventListener("click", () => {
@@ -34,7 +35,25 @@ for(let button of numberButton){
 }
 
 for(let button of operationButton){
-    button.addEventListener("click", () => {})
+    button.addEventListener("click", () => {
+        if(!operator){
+            operator = button.textContent;
+        };
+        if(!numOne){
+            numOne = +calcDisplay.textContent;
+            operator = button.textContent;
+            calcDisplay.textContent = "";
+            // console.log(numOne, operator);
+        }
+        else if(!numTwo){
+            numTwo = +calcDisplay.textContent;
+            console.log(operator);
+            let result = operate(numOne, operator, numTwo);
+            calcDisplay.textContent = `${result}`;
+            numOne = result;
+            console.log(numTwo);
+        }
+    })
 };
 
 function operate(numOne, operator, numTwo){
