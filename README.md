@@ -1,2 +1,2 @@
 # Calculator
-A simple, standard calculator.
+A simple, standard web calculator.
