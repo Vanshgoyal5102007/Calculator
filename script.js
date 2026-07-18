@@ -1,3 +1,9 @@
+//There is a glitch that is apperently operating with
+// the selected sign with 0 as soon as we click the operate button on a number 
+// that we received by clicking the equal button
+//Try 2*3 = 6 -> any operate button
+//It should be an issue of +calcDisplay.textContent where +"" becomes 0.
+
 const calc = {
     add: (num1, num2) => num1 + num2,
     subtract: (num1, num2) => num1 - num2,
@@ -8,14 +14,16 @@ const calc = {
 let numOne = "";
 let operator = "";
 let numTwo = "";
-let resultLogged = false;
 
+let resultLogged = false;
+let equalFlag = false;
 
 const calcDisplay = document.querySelector(".calc-display");
 const backspace = document.querySelector(".backspace-btn");
 const numberButton = document.querySelectorAll(".number-btn");
 const operationButton = document.querySelectorAll(".operator-btn");
 const clearButton = document.querySelector(".clear-btn");
+const equalButton = document.querySelector(".equal-btn");
 
 clearButton.addEventListener("click", () => {
     numOne = "";
@@ -50,18 +58,35 @@ for(let button of operationButton){
             calcDisplay.textContent = "";
         }
         else if(!numTwo){
+            if(equalFlag){
+                calcDisplay.textContent = "";
+                equalFlag = false;
+                return;
+            }
             numTwo = +calcDisplay.textContent;
             let result = operate(numOne, operator, numTwo);
             calcDisplay.textContent = `${result}`;
-            console.log(numOne, operator, numTwo);
             numOne = result;
             resultLogged = true;
             numTwo = "";
             operator = button.textContent;
         }
-        else console.log("hi");
     })
 };
+
+equalButton.addEventListener("click", () => {
+    if(numOne && operator && !numTwo){
+        numTwo = +calcDisplay.textContent;
+        let result = operate(numOne, operator, numTwo);
+        calcDisplay.textContent = `${result}`;
+        numOne = result;
+        resultLogged = true;
+        numTwo = "";
+        operator = "";
+        equalFlag = true;
+        console.log(numOne, operator, numTwo, "=", result);
+    }
+})
 
 function operate(numOne, operator, numTwo){
     if(operator === "+"){
