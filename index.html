@@ -8,27 +8,34 @@
     <script src = "./script.js" defer></script>
 </head>
 <body>
-    <div class="calc-display"></div>
+    <div class="calc-container">
+        <div class="display-container">
+            <div class="sign-display"></div>
+            <div class="calc-display"></div>
+        </div>
 
-    <button class="clear-btn">Clear</button>
-    <button class="backspace-btn">Backspace</button>
+        <button class="clear-btn">Clear</button>
+        <button class="backspace-btn">Backspace</button>
 
-    <button class="number-btn">1</button>
-    <button class="number-btn">2</button>
-    <button class="number-btn">3</button>
-    <button class="number-btn">4</button>
-    <button class="number-btn">5</button>
-    <button class="number-btn">6</button>
-    <button class="number-btn">7</button>
-    <button class="number-btn">8</button>
-    <button class="number-btn">9</button>
-    <button class="number-btn">0</button>
-    
-    <button class="operator-btn">+</button>
-    <button class="operator-btn">-</button>
-    <button class="operator-btn">*</button>
-    <button class="operator-btn">/</button>
+        <button class="number-btn">1</button>
+        <button class="number-btn">2</button>
+        <button class="number-btn">3</button>
+        <button class="number-btn">4</button>
+        <button class="number-btn">5</button>
+        <button class="number-btn">6</button>
+        <button class="number-btn">7</button>
+        <button class="number-btn">8</button>
+        <button class="number-btn">9</button>
+        <button id="zero-btn" class="number-btn">0</button>
+        <button class="number-btn">.</button>
+        
+        <button class="operator-btn">+</button>
+        <button class="operator-btn">-</button>
+        <button class="operator-btn">*</button>
+        <button class="operator-btn">/</button>
 
-    <button class="equal-btn">=</button>
+        <button class="equal-btn">=</button>
+    </div>
+    <p class="noob-alert"></p>
 </body>
 </html>
