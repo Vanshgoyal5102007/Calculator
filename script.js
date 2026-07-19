@@ -50,7 +50,7 @@ for(let button of numberButton){
     button.addEventListener("click", () => {
         noobAlert.textContent = "";
         if(calcDisplay.textContent.at(0) === "0" && !calcDisplay.textContent.at(1) == "."){
-            calcDisplay.textContent = calcDisplay.textContent.slice(1,calcDisplay.textContent.length)
+            calcDisplay.textContent = calcDisplay.textContent.slice(1,-1)
         }
         else if(calcDisplay.textContent.at(0) === "0" && !calcDisplay.textContent.at(1) == "." && button.textContent === "0"){
             calcDisplay.textContent += "";
