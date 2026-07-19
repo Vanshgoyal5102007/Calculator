@@ -55,7 +55,7 @@ for(let button of numberButton){
         else if(calcDisplay.textContent.at(0) === "0" && !calcDisplay.textContent.at(1) == "." && button.textContent === "0"){
             calcDisplay.textContent += "";
         }
-        else if(operator === "/" && !calcDisplay.textContent && button.textContent === "0"){
+        else if(operator === "÷" && !calcDisplay.textContent && button.textContent === "0"){
             calcDisplay.textContent += "";
             noobAlert.textContent = "Cmon dude, even a kid knows you can't divide something by 0";
         }
