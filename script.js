@@ -72,15 +72,15 @@ for(let button of numberButton){
 for(let button of operationButton){
     button.addEventListener("click", () => {
         signDisplay.textContent = button.textContent;
-        if(!operator){
+        if(operator && !numTwo){
             operator = button.textContent;
-        };
-        if(!numOne){
+        }
+        else if(!numOne){
             numOne = +calcDisplay.textContent;
             operator = button.textContent;
             calcDisplay.textContent = "";
         }
-        else if(!numTwo){
+        else if(!operator && !numTwo){
             if(equalFlag){
                 calcDisplay.textContent = "";
                 equalFlag = false;
